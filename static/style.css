@@ -1,0 +1,202 @@
+/* Resetando margens e padding para garantir consistência */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos Gerais */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    min-height: 100vh;
+    animation: fadeIn 2s ease-out;
+}
+
+/* Caixa de Clima */
+.container {
+    max-width: 450px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    margin: auto;
+    text-align: center;
+    transform: translateY(-30px);
+    animation: slideUp 1s ease-out;
+}
+
+/* Título */
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    animation: bounce 1s ease infinite;
+}
+
+/* Input e Botão */
+form {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    width: 75%;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #ff6347;
+    transform: scale(1.05);
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #ff6347;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff4500;
+    transform: scale(1.1);
+}
+
+/* Estilo para os Resultados */
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    animation: fadeInUp 1s ease-out;
+}
+
+p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Previsão das Próximas Horas */
+.previsao ul {
+    list-style: none;
+    padding: 0;
+}
+
+.previsao li {
+    font-size: 18px;
+    margin: 10px 0;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+img {
+    width: 40px;
+    margin-left: 10px;
+}
+
+/* Ícones Animados */
+.icon {
+    width: 50px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon:hover {
+    transform: rotate(360deg);
+    color: #ff6347;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo de Erro */
+p[style="color: red;"] {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #ff6f61;
+}
+
+/* Botão de Download */
+.download-btn {
+    padding: 12px 20px;
+    background-color: #2a5298;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #1e3c72;
+    transform: scale(1.1);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    input {
+        width: 85%;
+    }
+
+    .icon {
+        width: 40px;
+    }
+}

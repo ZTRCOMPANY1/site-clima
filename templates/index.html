@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima Atusal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🌤️ Consulta Clima</h1>
+
+        <form method="POST">
+            <input type="text" name="cidade" placeholder="Digite a cidade" required>
+            <button type="submit">Buscar Clima</button>
+        </form>
+
+        {% if clima %}
+            {% if clima.erro %}
+                <p style="color: red;">{{ clima.erro }}</p>
+            {% else %}
+                <h2>📍 {{ clima.cidade }}, {{ clima.pais }}</h2>
+                <p>📅 Data e Hora: {{ clima.data_hora }}</p>
+                <p>🌡️ Temperatura: {{ clima.temperatura }}°C</p>
+                <p>🥵 Sensação Térmica: {{ clima.sensacao }}°C</p>
+                <p>🔻 Mínima: {{ clima.minima }}°C | 🔺 Máxima: {{ clima.maxima }}°C</p>
+                <p>🌤️ Condição: {{ clima.condicao }}</p>
+                <p>☔ Vai Chover? <strong>{{ clima.vai_chover }}</strong></p>
+                <p>🌧️ Probabilidade de Chuva: <strong>{{ clima.chance_chuva }}%</strong></p>
+                <p>💨 Vento: {{ clima.vento_kph }} km/h</p>
+                <p>💧 Umidade: {{ clima.umidade }}%</p>
+                <img src="{{ clima.icone }}" alt="Ícone do Clima">
+               <p>-----------------------------------------------------</p>
+                <h3>📊 Previsão para as Próximas Horas</h3>
+                <div class="previsao">
+                    <ul>
+                        {% for hora in previsao_horas %}
+                            <li>
+                                ⏰ {{ hora.hora }} - 🌡️ {{ hora.temperatura }}°C - {{ hora.condicao }} 
+                                🌧️ Chuva: {{ hora.chance_chuva }}%
+                                <img src="{{ hora.icone }}" alt="Ícone">
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endif %}
+        
+
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
