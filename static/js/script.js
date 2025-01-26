@@ -24,3 +24,8 @@ document.getElementById('download-btn').addEventListener('click', function() {
     a.click();
     URL.revokeObjectURL(url);
 });
+
+fetch('https://site-clima-one.vercel.app/api/hello')
+  .then(response => response.json())
+  .then(data => console.log(data));
+
